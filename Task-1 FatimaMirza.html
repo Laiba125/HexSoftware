@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background-color: #333; /* Dark grey background for a sleek professional look */
+      color: #ecf0f1; /* Light grey text for good contrast */
+    }
+
+    h1, h2, h3 {
+      color: #ecf0f1; /* Light text for headings */
+    }
+
+    a {
+      color: #3498db; /* Blue color for links */
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .container {
+      width: 85%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    header {
+      background-color: #2c3e50; /* Dark header background */
+      color: #ecf0f1; /* Light text in header */
+      padding: 60px 0;
+      text-align: center;
+      border-bottom: 5px solid #34495e;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      color: #3498db; /* Blue for section titles */
+      margin-bottom: 25px;
+    }
+
+    /* Bio Section */
+    .bio p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #bdc3c7; /* Lighter grey for readability */
+    }
+
+    /* Skills Section */
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+    }
+
+    .skills li {
+      background-color: #444; /* Dark grey background for skills */
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skills li:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Projects Section */
+    .projects ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .projects li {
+      background-color: #444; /* Dark grey for projects */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .projects li:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .projects h3 {
+      color: #3498db; /* Blue for project titles */
+      margin: 0 0 10px;
+    }
+
+    .projects p {
+      font-size: 1rem;
+      color: #bdc3c7; /* Lighter grey for descriptions */
+    }
+
+    /* Education Section */
+    .education ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .education li {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #444; /* Dark grey for education */
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .education h3 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #3498db; /* Blue for education titles */
+    }
+
+    .education p {
+      font-size: 1.1rem;
+      color: #bdc3c7; /* Lighter grey for education text */
+      margin-top: 10px;
+    }
+
+    /* Contact Section */
+    .contact form {
+      display: grid;
+      gap: 25px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    .contact input[type="submit"] {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .contact input[type="submit"]:hover {
+      background-color: #2980b9;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #2c3e50; /* Dark footer background */
+      color: #ecf0f1; /* Light footer text */
+      font-size: 1.1rem;
+    }
+
+    footer a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .bio p {
+        font-size: 1rem;
+      }
+
+      .skills ul, .projects ul {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .education h3 {
+        font-size: 1.6rem;
+      }
+
+      .contact input, .contact textarea {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <h1>Fatima Mirza</h1>
+      <p>Web Developer | Designer | Problem Solver</p>
+    </div>
+  </header>
+
+  <!-- Bio Section -->
+  <section class="bio">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        As a recent Computer Science graduate, I am enthusiastic about leveraging my academic background in real-world applications and eager to gain practical, hands-on experience.
+        I possess strong analytical and technical skills, with a keen interest in exploring new technologies and tackling complex problems. My goal is to join a forward-thinking
+        organization that values continuous learning, where I can contribute effectively while honing my skills and growing alongside a team of professionals. 
+        I am committed to making a meaningful impact by delivering high-quality work and embracing opportunities to expand my expertise.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <ul>
+        <li>
+          <h3>IOT Based Smart Gesture Gloves</h3>
+          <p>The portable gadget act as a correspondence for trading data between normal and mute community .
+            The proposed system convert the hand gesture to a sentence using a portable device attached to the hand gloves of the impaired person. (2023-24)</p>
+        </li>
+        <li>
+          <h3>File Conversion</h3>
+          <p>Create and deploy a web application on AWS that enables users to upload files. The uploaded files are stored in one S3 bucket processed and converted by a Lambda function, with the results stored in a separate S3 bucket. This setup leverages EC2 for hosting, Lambda function for file conversion, IAM for access management, S3 for file storage, and SQS for task queuing. (2024)</p>
+        </li>
+        <!-- Add more projects as needed -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>UX/UI Design</li>
+        <li>Amazon Cloud Practitioner</li>
+        <li>Responsive Design</li>
+        <li>Problem Solving</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <ul>
+        <li>
+          <h3>Masters in Computer Science - Ramniranjhan Jhunjhunwala College</h3>
+          <p>June 2024 - Present</p>
+          <p>A Master's in Computer Science opens doors to a diverse range of specialized careers in the tech industry.</p>
+        </li>
+        <li>
+          <h3>Bachelor's in Computer Science - Ramniranjhan Jhunjhunwala College</h3>
+          <p>June 2021 - May 2024</p>
+          <p>A Bachelor's degree in Computer Science provides a comprehensive foundation in computing, equipping students with the knowledge to design, develop, and implement software applications.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <form action="mirzafatima0005@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <input type="submit" value="Send Message">
+    <div id="responseMessage" style="display: none; margin-top: 20px; color: #3498db;">
+          Your response has been submitted successfully.
+    </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Fatima Mirza. All rights reserved. <a href="https://www.linkedin.com/in/fatima-mirza-a67981291" target="_blank">LinkedIn</a></p>
+  </footer>
+
+</body>
+</html>
