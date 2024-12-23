@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .button {
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff7b54;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #ff9770;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            position: relative;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-200px); }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting">Welcome to My Animating Website</h1>
+    <div class="ball"></div>
+    <button class="button" onclick="changeGreeting()">Change Greeting</button>
+
+    <script>
+        function changeGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const greetings = [
+                'Hello, World!',
+                'Enjoy the Animations!',
+                'Welcome to My Creative Space!',
+                'Have a Great Day!'
+            ];
+
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            greetingElement.textContent = randomGreeting;
+        }
+    </script>
+</body>
+</html>
